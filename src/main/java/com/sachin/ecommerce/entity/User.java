@@ -1,5 +1,6 @@
 package com.sachin.ecommerce.entity;
 
+import com.sachin.ecommerce.enums.Gender;
 import com.sachin.ecommerce.enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -18,14 +19,19 @@ public class User {
 
     private String lastName;
 
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
     private String email;
+
+    private String address;
 
     private String pass;
 
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
-    private Role USER;
+    private Role role;
 
     private LocalDateTime createdAt;
 
