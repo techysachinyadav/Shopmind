@@ -3,9 +3,12 @@ package com.sachin.ecommerce.service;
 import com.sachin.ecommerce.dto.userrequestdto.UserRequestDto;
 import com.sachin.ecommerce.dto.userresponsedto.UserResponseDto;
 import com.sachin.ecommerce.entity.User;
+import com.sachin.ecommerce.exception.UserNotFoundException;
 import com.sachin.ecommerce.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserServiceImplem implements UserService{
@@ -20,6 +23,12 @@ public class UserServiceImplem implements UserService{
 
     //UserResponseDto userResponseDto = new UserResponseDto();
     return mapUserToResponseDto(user);
+    }
+
+    @Override
+    public UserResponseDto getUser(Long id) {
+        User user = userRepository.findById(id).orElseThrow( ()-> new UserNotFoundException("User : "+id+" User not found"));
+        return mapUserToResponseDto(user);
     }
 
     private User mapRequestDtoToUser (User user, UserRequestDto userRequestDto){
