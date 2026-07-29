@@ -1,6 +1,7 @@
 package com.sachin.ecommerce.dto.userresponsedto;
 
 import com.sachin.ecommerce.enums.Gender;
+import com.sachin.ecommerce.enums.Role;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,6 +16,7 @@ public class UserResponseDto {
     private String email;
     private String phoneNumber;
     private String address;
+    private Role role;
 
 
 }

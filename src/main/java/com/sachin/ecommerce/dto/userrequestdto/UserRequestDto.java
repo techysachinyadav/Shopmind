@@ -1,6 +1,7 @@
 package com.sachin.ecommerce.dto.userrequestdto;
 
 import com.sachin.ecommerce.enums.Gender;
+import com.sachin.ecommerce.enums.Role;
 import lombok.Data;
 
 @Data
@@ -13,4 +14,5 @@ public class UserRequestDto {
     private String address;
     private String pass;
     private String phoneNumber;
+    private Role role;
 }
